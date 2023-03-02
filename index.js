@@ -19,7 +19,7 @@ function initAutoUpdater(event, data) {
         autoUpdater.allowPrerelease = true
     } else {
         // Defaults to true if application version contains prerelease components (e.g. 0.12.1-alpha.1)
-        // autoUpdater.allowPrerelease = true
+        // autoUpdater.allowPrerelease = true 
     }
     
     if(isDev){
