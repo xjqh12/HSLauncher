@@ -1,7 +1,7 @@
 {
   "name": "hslauncher",
-  "version": "0.0.2",
-  "productName": "HS Launcher",
+  "version": "0.0.1",
+  "productName": "HSLauncher",
   "description": "Modded Minecraft Launcher",
   "author": "Daniel Scalzi (https://github.com/dscalzi/) modified by HS",
   "license": "UNLICENSED",
