@@ -94,8 +94,8 @@ function mcVersionAtLeast(desired, actual){
 const DEFAULT_CONFIG = {
     settings: {
         game: {
-            resWidth: 1280,
-            resHeight: 720,
+            resWidth: 850,
+            resHeight: 480,
             fullscreen: false,
             autoConnect: true,
             launchDetached: true
