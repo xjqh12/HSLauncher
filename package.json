@@ -1,13 +1,13 @@
 {
   "name": "hslauncher",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "productName": "HS Launcher",
   "description": "Modded Minecraft Launcher",
   "author": "Daniel Scalzi (https://github.com/dscalzi/) modified by HS",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/xjqh12/HS_Launcher",
+  "homepage": "https://github.com/xjqh12/HSLauncher",
   "bugs": {
-    "url": "https://github.com/xjqh12/HS_Launcher/issues"
+    "url": "https://github.com/xjqh12/HSLauncher/issues"
   },
   "private": true,
   "main": "index.js",
@@ -49,6 +49,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xjqh12/HS_Launcher"
+    "url": "git+https://github.com/xjqh12/HSLauncher"
   }
 }
