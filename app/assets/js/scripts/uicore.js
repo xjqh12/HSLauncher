@@ -50,6 +50,10 @@ if(!isDev){
                 if(process.platform === 'darwin'){
                     info.darwindownload = `https://github.com/xjqh12/HSLauncher/releases/download/v${info.version}/HSLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
+                }else if(process.platform == 'win32'){
+                    console.log(process.platform);
+                    info.darwindownload = `https://github.com/xjqh12/HSLauncher/releases/download/v${info.version}/HSLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.exe`
+                    showUpdateUI(info)
                 }
                 
                 populateSettingsUpdateInformation(info)
