@@ -1459,14 +1459,15 @@ function populateReleaseNotes(){
     $.ajax({
         url: 'https://github.com/xjqh12/HSLauncher/releases.atom',
         success: (data) => {
-            const version = 'v' + remote.app.getVersion()
+            const version = 'HSLauncher' + remote.app.getVersion()
             const entries = $(data).find('entry')
             
             for(let i=0; i<entries.length; i++){
                 const entry = $(entries[i])
                 let id = entry.find('id').text()
                 id = id.substring(id.lastIndexOf('/')+1)
-
+                console.log("version = " + version)
+                console.log("id = " + id)
                 if(id === version){
                     settingsAboutChangelogTitle.innerHTML = entry.find('title').text()
                     settingsAboutChangelogText.innerHTML = entry.find('content').text()
@@ -1477,7 +1478,7 @@ function populateReleaseNotes(){
         },
         timeout: 2500
     }).catch(err => {
-        settingsAboutChangelogText.innerHTML = 'Failed to load release notes.'
+        settingsAboutChangelogText.innerHTML = '릴리즈 노트를 로드하지 못했습니다.'
     })
 }
 
@@ -1532,20 +1533,20 @@ function populateSettingsUpdateInformation(data){
         populateVersionInformation(data.version, settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
         
         if(process.platform === 'darwin'){
-            settingsUpdateButtonStatus('Download from GitHub<span style="font-size: 10px;color: gray;text-shadow: none !important;">Close the launcher and run the dmg to update.</span>', false, () => {
+            settingsUpdateButtonStatus('GitHub에서 다운로드<span style="font-size: 10px;color: gray;text-shadow: none !important;">런처를 닫고 dmg를 실행하여 업데이트합니다.</span>', false, () => {
                 shell.openExternal(data.darwindownload)
             })
         } else {
-            settingsUpdateButtonStatus('Downloading..', true)
+            settingsUpdateButtonStatus('다운로드중..', true)
         }
     } else {
-        settingsUpdateTitle.innerHTML = 'You Are Running the Latest Version'
+        settingsUpdateTitle.innerHTML = '최신 버전을 실행하고 있습니다.'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        settingsUpdateButtonStatus('Check for Updates', false, () => {
+        settingsUpdateButtonStatus('업데이트 확인', false    , () => {
             if(!isDev){
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
-                settingsUpdateButtonStatus('Checking for Updates..', true)
+                settingsUpdateButtonStatus('업데이트 확인 중..', true)
             }
         })
     }

@@ -50,17 +50,13 @@ if(!isDev){
                 if(process.platform === 'darwin'){
                     info.darwindownload = `https://github.com/xjqh12/HSLauncher/releases/download/v${info.version}/HSLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
-                }else if(process.platform == 'win32'){
-                    console.log(process.platform);
-                    info.darwindownload = `https://github.com/xjqh12/HSLauncher/releases/download/v${info.version}/HSLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.exe`
-                    showUpdateUI(info)
                 }
                 
                 populateSettingsUpdateInformation(info)
                 break
             case 'update-downloaded':
-                loggerAutoUpdater.info('Update ' + info.version + ' ready to be installed.')
-                settingsUpdateButtonStatus('Install Now', false, () => {
+                loggerAutoUpdater.info('업데이트 ' + info.version + ' 설치준비.')
+                settingsUpdateButtonStatus('지금 설치', false, () => {
                     if(!isDev){
                         ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
                     }
