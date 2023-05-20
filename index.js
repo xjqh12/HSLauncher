@@ -26,6 +26,7 @@ function initAutoUpdater(event, data) {
         autoUpdater.autoInstallOnAppQuit = false
         autoUpdater.updateConfigPath = path.join(__dirname, 'dev-app-update.yml')
     }
+    console.log("initAutoUpdater " + process.platform)
     if(process.platform === 'darwin'){
         autoUpdater.autoDownload = false
     }
@@ -254,7 +255,7 @@ function createWindow() {
 }
 
 function createMenu() {
-    
+    console.log("createMenu " + process.platform)
     if(process.platform === 'darwin') {
 
         // Extend default included application menu to continue support for quit keyboard shortcut
@@ -319,6 +320,7 @@ function createMenu() {
 
 function getPlatformIcon(filename){
     let ext
+    console.log("getPlatformIcon " + process.platform)
     switch(process.platform) {
         case 'win32':
             ext = 'ico'

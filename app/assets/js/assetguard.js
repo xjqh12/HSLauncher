@@ -47,6 +47,7 @@ class Library extends Asset {
      * Converts the process.platform OS names to match mojang's OS names.
      */
     static mojangFriendlyOS(){
+        console.log("mojangFriendlyOS " +process.platform)
         const opSys = process.platform
         if (opSys === 'darwin') {
             return 'osx'
