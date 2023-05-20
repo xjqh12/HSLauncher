@@ -1531,7 +1531,7 @@ function populateSettingsUpdateInformation(data){
         settingsUpdateChangelogTitle.innerHTML = data.releaseName
         settingsUpdateChangelogText.innerHTML = data.releaseNotes
         populateVersionInformation(data.version, settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        
+        console.log(process.platform )
         if(process.platform === 'darwin'){
             settingsUpdateButtonStatus('GitHub에서 다운로드<span style="font-size: 10px;color: gray;text-shadow: none !important;">런처를 닫고 dmg를 실행하여 업데이트합니다.</span>', false, () => {
                 shell.openExternal(data.darwindownload)

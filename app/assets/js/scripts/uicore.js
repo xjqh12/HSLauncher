@@ -46,7 +46,7 @@ if(!isDev){
                 break
             case 'update-available':
                 loggerAutoUpdater.info('New update available', info.version)
-                
+                console.log(process.platform)
                 if(process.platform === 'darwin'){
                     info.darwindownload = `https://github.com/xjqh12/HSLauncher/releases/download/v${info.version}/HSLauncher-setup-${info.version}${process.arch === 'arm64' ? '-arm64' : '-x64'}.dmg`
                     showUpdateUI(info)
